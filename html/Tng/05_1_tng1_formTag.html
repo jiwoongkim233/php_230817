@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form action="">
+<h1>회원가입을 환영합니다</h1>
+<fieldset>
+<legend>사용자 정보</legend>
+<ul>
+    <li>
+    <label for="id">아이디</label>
+    <input type="text" id="id" maxlength="10" minlength="4" placeholder="4자 ~ 10자 사이, 공백없이" required>
+    </li>
+    <li>
+    <label for="email">이메일</label>
+    <input type="email" id="email">
+    </li>
+    <li>
+    <label for="pw">비밀번호</label>
+    <input type="password" id="pw" placeholder="문자와 숫자, 특수 기호 포함" required>
+    </li>
+    <li>
+    <label for="pw">비밀번호 확인</label>
+    <input type="password" id="doublecheck" required>
+    </li>
+    <li>
+    <label for="how">가입 경로</label>
+    <select name="how" id="how">
+    <option value="1">블로그</option>
+    <option value="2">지인소개</option>
+    <option value="3" selected>기타</option>
+    </select>
+    </li>
+    <li>
+    <label for="memo">메모</label>    
+    <textarea placeholder="남길 말씀이 있다면여기에" cols="30" rows="10"></textarea>
+    </li>
+    </ul>
+</fieldset>
+    <fieldset>
+    <legend>이벤트와 새로운 소식</legend>
+    <label for="send email">메일 수신</label>
+    <input type="radio" id="send email" name="event">
+    <label for="no email">메일 수신 안 함</label>
+    <input type="radio" id="no email" name="event" checked="checked">
+    </fieldset>    
+    <br>
+    <button type="submit">가입하기</button>
+    <button type="reset">취소</button>
+     
+</ul>
+</fieldset>
+</form>
+   
+    
+
+    
+</body>
+</html>
