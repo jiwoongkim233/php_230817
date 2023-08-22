@@ -1,0 +1,32 @@
+ @import url('https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Nanum+Gothic+Coding&display=swap');
+
+*{
+    font-family: 'Grandiflora One', serif;
+}
+.p1_size1{
+    font-size:xx-small
+}
+.p1_size2{
+font-size: medium;
+}
+.p1_size3{
+    font-size: xx-large;
+}
+.p1_size4{
+font-size: 1em;
+}
+.p1_size5{
+font-size: 2em;
+}
+.p1_size6{
+    font-size: 1.5rem;
+}
+.p1_weight1{
+    font-weight: 100;
+}
+.p1_weight2{
+    font-weight: 400;
+}
+.p1_weight3{
+    font-weight: 900
+}

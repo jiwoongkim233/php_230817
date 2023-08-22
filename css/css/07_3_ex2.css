@@ -1,0 +1,21 @@
+.deco{
+    text-decoration: underline
+    }
+
+.height{
+line-height: 1cm;
+}
+.left{
+    text-align: left;
+}
+.right{
+    text-align: right
+}
+.center{
+    
+    background-color: cadetblue;
+    height: 300px ;
+    text-align: center ; 
+    line-height: 300px ;
+     
+}

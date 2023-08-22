@@ -1,0 +1,15 @@
+span{
+     color: #ad3000;
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+
+li{
+    list-style: none;
+    line-height: 200%;
+    font-size: 1.2rem;
+}
+div{
+    border: 1px solid #000;
+    width: 600px;
+}

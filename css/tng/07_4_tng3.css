@@ -1,0 +1,44 @@
+h1{
+    color:white;
+}
+.header{
+    border: 1px solid #000;
+    background-color: #000;
+}
+.orange{
+    color:orange;
+    text-align: left;
+}
+.confirm{
+    border: 1px solid #000;
+    background-color: #000
+}
+.yes{
+    color: white;
+}
+
+.container{
+border: 1px solid #000;
+width: 500px
+}
+h2{
+    color:red;
+    text-align: center;
+}
+span{
+    color: blue
+}
+p{
+    text-align: center;
+}
+.noti{
+    text-align: center;
+    font-size: smaller;
+}
+.yes{
+    text-align: left;
+}
+.main border{
+    margin:0;
+    padding:0;
+}

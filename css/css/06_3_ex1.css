@@ -1,0 +1,17 @@
+*{
+    color:skyblue;
+}
+
+h1{
+    color:red
+}
+.font-color{
+    color:orange
+}
+#p1{
+    color:black
+}
+em,strong{
+    color:purple
+    
+}

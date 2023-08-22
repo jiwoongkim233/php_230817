@@ -1,0 +1,54 @@
+
+span{
+    color:blue;
+    font-weight: 900;
+}
+h1{
+    text-align: center;
+    color: red;
+    font-size: 1.5em;
+}
+
+.bc{
+    border: 1px solid #000
+}
+.abc{
+    border: 1px solid #000;
+    width: 500px;
+
+}
+.black{
+    background-color: #000;
+    width: 500px;
+    color: white;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    line-height: 50px;
+}
+.ccc{
+    text-align: center; 
+}
+
+.cccc{
+    text-align: center;
+    font-size: 0.7em;
+}
+.ccccc{
+    font-weight: 900;
+    text-align: center;
+}
+.white{
+    color:white;
+    font-size: x-large;
+}
+.blackk{
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    width: 500px
+}
+.orange{
+    color: orange;
+    font-size: small;
+}

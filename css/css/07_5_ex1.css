@@ -1,0 +1,17 @@
+table{
+    border: 1px solid #000;
+    border-collapse: collapse; 
+    caption-side: bottom
+    /* border-spacing: 20px 5px 10px 5px; */
+}
+
+th,td{
+    border: 1px solid #000;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-weight: 900;
+    font-style: initial;
+}
+
+
