@@ -1,0 +1,35 @@
+main, section, article{
+    padding: 20px;
+}
+main{
+    background-color: cadetblue;
+    position: relative;
+}
+section{
+    background-color: antiquewhite;
+}
+article{
+    background-color: green;
+    position: relative;
+    
+}
+.div_static{
+    background-color: lightgray;
+    position:static
+}
+.div_relative{
+    background-color: aqua;
+    position: relative;   
+}
+.div_absolute{
+background-color: red;
+/* position: absolute; */
+}
+.div_fixed{
+    background-color: yellow;
+   
+}
+.div_sticky{
+    background-color: beige;
+    
+}

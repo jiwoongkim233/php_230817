@@ -1,0 +1,33 @@
+header{
+    background-color: skyblue;
+    height: 120px;
+    
+}
+.side_1{
+    float:left;
+    width: 250px;
+    background-color: beige;
+    height: 700px;
+   
+}
+.side_2{
+    float:left;
+    width: 250px;
+    background-color: beige;
+    height: 700px;
+   
+}
+article{
+    background-color: blue;
+    width: 500px;
+    height: 700px;
+    float: left;
+}
+footer{
+    background-color: greenyellow;
+    height: 150px;
+    clear: both;
+}
+header,footer,main{
+    width:1000px
+}
