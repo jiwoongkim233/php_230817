@@ -1,0 +1,31 @@
+.container{
+    border: 1px solid #000;
+    height: 1000px;
+    width: 1000px;
+    position: relative;
+    
+}
+.pos1{
+    border: 1px solid #000;
+    height: 300px;
+    width: 300px;
+    left: 50px;
+    top: 50px;
+    position: absolute;
+}
+.pos2{
+    border: 1px solid #000;
+    height: 300px;
+    width: 300px;
+    right: 200px;
+    top: 200px;
+    position: absolute;
+}
+.pos3{
+    border: 1px solid #000;
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    bottom: 100px;
+    left: 50px;
+}

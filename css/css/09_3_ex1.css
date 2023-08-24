@@ -1,0 +1,28 @@
+div{
+    width: 400px;
+    height: 200px;
+    border: 5px solid #000;
+    
+}
+.line{
+    background: linear-gradient( to right  
+    ,red
+    ,orange
+     ,yellow
+      ,green
+      ,blue
+      ,navy 
+      ,purple)
+}
+
+.round{ 
+    background: radial-gradient(circle at 0% 20%
+    ,red
+    ,orange
+    ,yellow
+    ,green
+    ,blue
+    ,navy
+    ,purple
+    )
+}

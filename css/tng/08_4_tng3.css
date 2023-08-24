@@ -1,0 +1,61 @@
+footer{
+    clear:both;
+    border: 1px solid #000;
+    line-height: 50px;
+    text-align: center;
+    background-color: #000;
+    color: white;
+}
+.a1{
+    width: 350px;
+    height: 200px;
+    border: 1px dotted #000;
+    margin: 10px;
+    padding: 10px;
+    float: left;
+    background-image: url(../img/231.jfif);
+    background-size: cover;
+    
+}
+.a2{
+    float: left;
+    width: 350px;
+    height: 200px;
+    border: 1px dotted #000;
+    margin: 10px;
+    padding: 10px;
+    background-image: url(../img/231.jfif);
+    background-size: cover;
+
+}
+.a3{
+    float: left;
+    width: 350px;
+    height: 200px; 
+    border: 1px dotted #000;
+    margin: 10px;
+    padding: 10px;
+    background-image: url(../img/231.jfif);
+    background-size: cover;
+}
+.a4{
+    width: 350px;
+    height: 200px;
+    border: 1px dotted #000;
+    margin: 10px;
+    padding: 10px;
+    float: left;
+    background-image: url(../img/231.jfif);
+    background-size: cover;
+}
+
+div{
+    border: none;
+    width: 800px;
+    height: 500px;
+    margin: 150px auto;
+    top: 10%;
+    left: 25%
+}
+
+

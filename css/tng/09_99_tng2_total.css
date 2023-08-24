@@ -1,0 +1,38 @@
+body{
+    background-color: #02233b;
+}
+.container{
+    background-color: white;
+    margin: auto;
+    width: 800px;
+    height: 1000px;
+    background-image: url(../img/uncle\ ryze.jfif);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 400px;
+   
+}
+h2{
+    color: red;
+    display: inline-block;
+    margin: 30px;
+}
+h1{
+    display: inline-block;
+    background-color: green;
+    color: white;
+    width: 600px;
+    height: 100px;
+    margin: 30px 100px;
+    text-align: center;
+    line-height: 100px;   
+}
+.d1{
+   text-align: center;
+   font-size:x-large;
+   font-weight: bolder;
+}
+p{
+    position: relative;
+    left: 100px;
+}
