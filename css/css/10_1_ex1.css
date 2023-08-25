@@ -1,0 +1,17 @@
+header>span{
+     color: green;
+/* 부모요소>하위요소 */
+}
+
+span+p{
+color:green
+}
+main h1+span{
+    color: red
+}
+main div>h1{
+    color: aqua
+}
+span~p{
+    color: blue
+}

@@ -1,0 +1,25 @@
+[target] {
+    color: red
+}
+[target=daum]{
+    color: blue
+}
+
+/* *속성값이 포함되어 있는 */
+[class*=att_class]{
+    color: brown;
+}
+/* ~속성 값 일부가 일치하는 */
+[class~=att_class]{
+    color: chocolate
+}
+[class|=att_class]{
+    color: violet
+}
+[class^=co]{
+    color: aqua
+}
+
+[class$=k1]{
+    color: pink
+}
