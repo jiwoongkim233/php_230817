@@ -1,0 +1,73 @@
+body{
+    width:800px;
+    margin: auto;
+}
+
+fieldset{
+    position: relative;
+    background-image: url(../img/uncle\ ryze.jfif);
+    background-size: cover;
+    width:500px;
+    margin:auto;
+    border: 1px solid #000;
+    opacity: 0.9;
+
+}
+ul{
+    list-style: none;
+}
+legend{
+    color:rgb(236, 45, 77);
+    font-size: xx-large;
+}
+.name::before,.age::before,.gender::before{
+    content:"*";
+    color: red;
+    
+}
+
+#id:focus,#age:focus{
+    border-color:red;
+    outline: none;
+}
+
+input:checked+label{
+    color:red;
+}
+textarea:focus{
+    border:1px solid red;
+    outline: none;
+    
+}
+button{
+    position: absolute;
+    left: 0;
+    margin: -5px 10px;
+}
+#id{
+    background: none;
+}
+#age{
+    background: none;
+}
+textarea{
+    background: none;
+}
+span{
+    background-color: black;
+    color:white;
+    display: none;
+    width:300px;
+    margin-left: 20px;
+    text-align: center;
+}
+button:hover+span{
+display: block;
+
+}
+.memo2{
+    float: left;
+}
+label{
+    color:#fff
+}

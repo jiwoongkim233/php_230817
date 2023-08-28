@@ -1,0 +1,25 @@
+/* 
+flexbox 구성:
+상위 부모 요소인 flex container와 배치하고 싶은 HTML 요소인 flex item으로 구성됩니다.
+부모요소에 "display:flex" 또는 "display:inline-flex"속성을
+*/
+
+.container{
+    background-color: gray;
+    margin:10px;
+    width: 60vw;
+    height: 60vh;
+    display: flex;
+    flex-flow: row wrap;
+    /* justify-content: space-around; */
+    
+}
+
+
+
+.item{
+    width:15vw;
+    height:15vh;
+    background-color: skyblue;
+    border: 1px solid #000
+}
