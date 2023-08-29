@@ -1,0 +1,61 @@
+
+.container{
+    width:400px;
+    height:500px;
+    background-color: gray;
+    border: 1px solid #000;
+    
+    
+}
+.div1{
+    border: 1px solid #000;
+    background-color: blue;
+    display: flex;
+    width: 180px;
+    height: 150px;
+    align-content: flex-end;
+    margin: 20px auto;
+}
+.div2{
+    border: 1px solid #000;
+    background-color: blue;
+    height: 100px;
+    width: 380px;
+    display: flex;
+    margin: auto;
+}
+.div3{
+    border: 1px solid #000;
+    background-color: blue;
+    height:160px;
+    width:150px;
+    margin:0px 9px;
+    
+    display: inline-flex;
+
+}
+.div4{
+    border:1px solid #000;
+    background-color: blue;
+    height: 70px;
+    width: 213px;
+    margin: 10px auto;
+     
+}
+.con1{
+    display: flex;  
+}
+.con2{
+    display: inline-flex;
+    flex-direction: column; 
+}
+
+
+
+   
+
+
+
+   
+  
+    
