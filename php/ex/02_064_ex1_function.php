@@ -66,9 +66,13 @@
 // }
 //  echo my_recursion(3);
 
-function sum(...$num){
-$stor = 0;
-foreach($num as $key =>$value)
-
+for($i=0; $i<5;$i++){
+    for($w=0; $w<=$i;$w++){
+    echo "*";}   
+    echo "\n";
 }
+
+
+
+
 ?>
