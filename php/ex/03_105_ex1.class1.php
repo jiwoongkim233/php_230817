@@ -25,17 +25,19 @@ class ClassRoom
         echo $str;
     }
 };
+
+// 생성자 (constructor) :
 // class instance 생성
 $obj_ClassRoom = new ClassRoom;
 $obj_ClassRoom -> class_room_set_value();
 $obj_ClassRoom -> classRoomPrint();
+
 // // $obj_ClassRoom -> computer = "test";
 
 // // var_dump($obj_ClassRoom -> computer);
 
 
 
-// 컴퓨터,북,백의 값을 출력하는 메소드 생성
 
 
 
