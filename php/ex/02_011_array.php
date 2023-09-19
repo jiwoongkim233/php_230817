@@ -80,7 +80,8 @@ $arr_push2 = [
 ];
 
 $arr_push2["c"] = 3;
-print_r($arr_push2)
+print_r($arr_push2);
+
 
 
 ?>

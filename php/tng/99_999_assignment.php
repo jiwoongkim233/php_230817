@@ -39,24 +39,71 @@ my_db_conn( $conn );
 // db_destroy_conn($conn);
 
 // 2
-$sql2 = " UPDATE employees "
-." SET " 
-	." first_name "
-	." ,last_name "
-." WHERE " 
-." emp_no = 500010";
 
-$arr_ps2 = [
-	":first_name" => 'dooly'
-	,":last_name" => 'hoi'
+// $sql = 
+// " UPDATE employees "
+// ." SET " 
+// ." first_name = '둘리' "	
+// ." WHERE " 
+// ." emp_no = :emp_no "
+// ;
+
+// $arr_ps = [
+// 	":emp_no" => 500010
+// ];
+
+// $stmt = $conn->prepare($sql);
+// $result = $stmt->execute($arr_ps);
+// $conn->commit();
+
+// $sql = 
+// " UPDATE employees "
+// ." set " 
+// ." last_name  = '호이' "
+// ." where " 
+// ." emp_no = :emp_no "; 
+
+// $arr_ps=[
+// 	":emp_no" => 500010
+// ]
+// ;
+
+// $stmt = $conn -> prepare($sql);
+// $result2 = $stmt -> execute($arr_ps);
+// $conn->commit();
+
+// 3
+$sql=
+" select "
+." * "
+." from "
+." employees "
+." where "
+." emp_no = :emp_no "
+;
+$arr_ps= [
+	"emp_no" => 500010
 ];
+$stmt = $conn->prepare($sql);
+$stmt->execute($arr_ps);  
+$result = $stmt->fetchAll(); 
+print_r($result);
 
-$stmt = $conn -> prepare($sql2);
-$result2 = $stmt -> execute($arr_ps2);
-$conn->commit();
-var_dump($result2);
+// 4
+// $sql = 
 
-db_destroy_conn($conn);
+// " DELETE FROM "
+// ." employees "
+// ." WHERE "
+// ." emp_no = :emp_no ";
 
+// $arr_ps = [
+//     ":emp_no" => 500010
+// ];
 
+// $stmt = $conn->prepare($sql);
+// $result = $stmt->execute($arr_ps);
+// $conn->commit();
+
+// db_destroy_conn($conn);
 ?>
