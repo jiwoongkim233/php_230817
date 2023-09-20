@@ -6,6 +6,7 @@ $arr = [1,2,3];
 // for($num = 0; $num <= count($arr) -1;$num++){
 //     echo $arr[$num];
 // }
+
 foreach($arr as $key => $val){
     echo $val;
 };

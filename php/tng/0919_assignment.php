@@ -49,7 +49,7 @@ $arr_ps=[];
 $stmt = $conn->prepare($sql);
 $stmt -> execute($arr_ps);
 $result1 = $stmt -> fetchALL();
-print_r($result1);
+// print_r($result1);
 
 // 2
 $sql=
@@ -62,18 +62,19 @@ $sql=
 .",:to_date "
 ." ) "
 ;
-
+$i=[];
+foreach($result1 as $items){
+	$i=$items["emp_no"];
 $arr_ps=[
-	":emp_no"=>700000;
+	":emp_no"=>$i
 	,":title"=>"green"
 	,":from_date"=>20230919
 	,":to_date"=>99990101
-];
+]
+;
 
 $stmt = $conn->prepare($sql);
 $stmt -> execute($arr_ps);
-print_r($result);
+};
 $conn->commit();
-
-
 ?>
