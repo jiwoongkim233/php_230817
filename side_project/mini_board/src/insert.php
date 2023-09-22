@@ -16,6 +16,8 @@ if($http_method==="POST"){
 	throw new Exception("DB Error : PDO instance");
 	}
 	$conn->beginTransaction(); //트랜잭션 시작
+	
+	
 	// insert
 if(!db_insert_boards($conn, $arr_post)){
 	//DB Insert 에러
@@ -24,13 +26,17 @@ if(!db_insert_boards($conn, $arr_post)){
 $conn->commit(); //모든 처리 완료 시 커밋
 	// 리스트 페이지로 이동
 	header("Location: list.php");
+
+
 } catch(Exception $e) {
 	$conn->rollBack();
 	echo $e->getMessage(); //exception 메세지 출력
 	exit;
-} finally {
+
+
+	} finally {
 	db_destroy_conn($conn); //DB 파기
-}
+	}
 }
 
 
