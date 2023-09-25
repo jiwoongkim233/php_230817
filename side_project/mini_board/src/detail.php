@@ -6,6 +6,11 @@ require_once(ROOT."lib/lib_db.php"); // DB관련 라이브러리
 
 $id=""; //게시글 id
 $conn=null; //DB connect
+
+// $page_name = $_SERVER["PHP_SELF"];
+
+// $chk_detail = isset($_GET["page"]) ? $_GET["test"] : "update";
+
 try{
 	// Id 확인
 	if(!isset($_GET["id"])) {	
@@ -43,6 +48,8 @@ try{
 $input_id =$_GET["id"];
 
 $page_num = $_GET["page"];
+
+
 
 
 //게시글 조회 예외처리
@@ -84,9 +91,9 @@ $page_num = $_GET["page"];
 			<td><?php echo $item["create_at"]?></td>
 		</tr>
 	</table>
-	<a href="#">수정</a>
+	<a href="/mini_board/src/update.php/?id=<?php echo $id ?>&page=<?php echo $page_num ?>">수정페이지로</a>
 	<a href="/mini_board/src/list.php/?page=<?php echo $page_num ?>">취소</a>
 	<a href="#">삭제</a>
-	상세 페이지
+	
 </body>
 </html>

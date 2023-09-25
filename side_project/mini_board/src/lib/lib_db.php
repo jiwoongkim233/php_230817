@@ -107,17 +107,17 @@ function db_insert_boards(&$conn, &$arr_param){
 		." title "
 		." ,content "
 		." ) "
-		." VALUES( "
+		." VALUES ( "
 		." :title "
 		." ,:content "
 		." ) "
 		;
-		try{
+		
 $arr_ps =[
 		":title" => $arr_param["title"]
 		,":content" => $arr_param["content"]
 		];
-
+		try{
 		$stmt=$conn->prepare($sql);
 		$result=$stmt->execute($arr_ps);
 		return $result; //결과 리턴
@@ -160,6 +160,39 @@ $arr_ps =[
 		echo $e->getMessage(); //Exception 메세지 출력
 		return false; // 예외발생 false 출력
 	}
+}
+// 게시글 데이터 조회
+// 함수명 : db_update_boards_id
+// 기능 : boards 게시글 조회
+// 파라미터 : PDO 	&$conn, 
+//			 Array		&$arr_param
+// 리턴 : boolean
+// -------------------------------
 
-	}
+function db_update_boards_id(&$conn, &$arr_param) {
+$sql= " UPDATE "
+." boards "
+." SET "
+." title=:title "
+." ,content=:content "
+." WHERE "
+." id=:id "
+;
+
+$arr_ps=[
+	":id" => $arr_param["id"]
+	,":title"=>$arr_param["title"]
+	,":content"=>$arr_param["content"]
+];
+
+try{
+	$stmt=$conn->prepare($sql);
+	$result=$stmt->execute($arr_ps);
+		return $result;
+}catch(Exception $e){
+	echo $e->getMessage();
+	return false;
+}
+}
+
 ?>

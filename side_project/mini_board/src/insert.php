@@ -5,7 +5,7 @@ require_once(ROOT."lib/lib_db.php"); // DB관련 라이브러리
 
 // POST로 request가 왔을 때 처리
 $http_method=$_SERVER["REQUEST_METHOD"];
-if($http_method==="POST"){
+if($http_method === "POST"){
 	try{
 		$arr_post = $_POST;
 		$conn=null; //DB connection 변수
@@ -19,13 +19,14 @@ if($http_method==="POST"){
 	
 	
 	// insert
-if(!db_insert_boards($conn, $arr_post)){
+if(!db_insert_boards($conn, $arr_post)) {
 	//DB Insert 에러
 	throw new Exception("DB Error : Insert Boards");
 }
 $conn->commit(); //모든 처리 완료 시 커밋
 	// 리스트 페이지로 이동
 	header("Location: list.php");
+	exit;
 
 
 } catch(Exception $e) {
@@ -38,7 +39,6 @@ $conn->commit(); //모든 처리 완료 시 커밋
 	db_destroy_conn($conn); //DB 파기
 	}
 }
-
 
 ?>
 
