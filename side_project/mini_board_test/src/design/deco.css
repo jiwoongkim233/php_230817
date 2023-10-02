@@ -26,6 +26,7 @@ header{
 
 section{
 	text-align: center;
+	padding: 50px;
 }
 
 table,tr,td{
@@ -34,7 +35,17 @@ table,tr,td{
 	margin: auto;
 	padding:30px;
 }
-a{
+
+h1{
 	text-decoration: none;
-	color:black;
+}
+
+.div_1{
+	text-align: center;
+}
+a,button{
+	text-decoration: none;
+	color: #000;
+	border: none;
+	cursor: pointer;
 }
