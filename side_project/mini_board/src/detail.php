@@ -91,9 +91,10 @@ $page_num = $_GET["page"];
 			<td><?php echo $item["create_at"]?></td>
 		</tr>
 	</table>
-	<a href="/mini_board/src/update.php/?id=<?php echo $id ?>&page=<?php echo $page_num ?>">수정페이지로</a>
-	<a href="/mini_board/src/list.php/?page=<?php echo $page_num ?>">취소</a>
-	<a href="/mini_board/src/delete.php/?id=<?php echo $id ?>&page=<?php echo $page_num ?>">삭제</a>
-	
+	<div class="div_detail">
+	<a class= "detail_a" href="/mini_board/src/update.php/?id=<?php echo $id ?>&page=<?php echo $page_num ?>">수정</a>
+	<a class= "detail_a" href="/mini_board/src/list.php/?page=<?php echo $page_num ?>">취소</a>
+	<a class= "detail_a" href="/mini_board/src/delete.php/?id=<?php echo $id ?>&page=<?php echo $page_num ?>">삭제</a>
+	</div>
 </body>
 </html>

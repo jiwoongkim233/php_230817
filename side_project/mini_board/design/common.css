@@ -5,7 +5,7 @@
 }
 
  body{
-	background-image: url(/mini_board/src/img/item_5.jpg);
+	background-image: url(/mini_board/design/12345.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 100px;
@@ -15,11 +15,12 @@
  header{
 	width:100%;
 	background-color: #000;
+	color: #fff;
 	padding: 2rem;
 
 } 
 header>h1{
-	color:#ffff;
+	color:#fff;
 	text-align: center;
 	font-size: 4rem;
 }
@@ -31,6 +32,7 @@ table{
 	font-size:1.5rem;
 	color: #fff;
 }
+
 tr,td{
 	border-bottom: 1px solid #fff;
 	text-align: center;
@@ -52,7 +54,9 @@ a{
 	line-height: 50px;
 	color:#fff;
 }	
-
+.a_list{
+	color:#fff;
+}
 .page_btn{
 	text-decoration: none;
 	display:inline-block;
@@ -62,6 +66,56 @@ a{
 	text-align: center;
 	line-height: 50px;
 	color:#fff;
-	border-radius: 50px 50px 50px 50px;
+	border-radius: 50%;
+
+}
+.header_1 {
+	width:500px;
+	color: #fff;
+	text-align: center;
+	
+}
+.form_1{
+	width:500px;
+	margin:50px auto;
+	
+}	
+.detail_a{
+	border:1px solid #000;
+	border-radius: 50%;
+}
+.div_detail{
+	text-align: center;
+}
+.div_update{
+text-align: center;
+}
+button:hover{
+	background-color: brown;
+}
+a:hover{
+	background-color: brown;
+}
+textarea{
+	resize:none;
+	vertical-align: top;
+	background-color: transparent;
+}
+input{
+	background-color: transparent;	
 }
 
+.div_insert{
+text-align: center;
+}
+
+button{
+	display:inline-block;
+	width: 50px;
+	height: 50px;
+	border:none;
+	background-color: transparent;
+	cursor: pointer;
+	font-size: medium;
+	color:#fff
+}

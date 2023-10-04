@@ -79,7 +79,6 @@ try{
 		require_once(FILE_HEADER);
 	?>
 <main>
-	<a class= "article" href="/mini_board/src/insert.php">글 작성</a>
 	<table >
 		<colgroup>
 			<col width="20%">
@@ -100,7 +99,7 @@ try{
 						<?php echo $item["id"] ?>
 					</td>
 					<td>
-					<a href="/mini_board/src/detail.php/?id=<?php echo $item["id"]; ?>&page=<?php echo $page_num?>">
+					<a class="a_list" href="/mini_board/src/detail.php/?id=<?php echo $item["id"]; ?>&page=<?php echo $page_num?>">
 						<?php echo $item["title"] ?>
 					</a>
 				</td>
@@ -120,6 +119,7 @@ try{
 		}
 		?>
 		<a class="page_btn" href="/mini_board/src/list.php/?page=<?php echo $next_page_num ?>">>></a>
+		<a class= "article" href="/mini_board/src/insert.php">작성</a>
 	</section>
 </main>
 </body>

@@ -86,24 +86,25 @@ try{
 		<input type="hidden" name="page" value="<?php echo $page ?>">
 	<tr>
 		<th>글 번호</th>
-		<td><?php echo $item["id"]?></td>
+		<td class="update_td"><?php echo $item["id"]?></td>
 	</tr>
 	
 	<tr>
 		<th>제목</th>
-		<td><input type="text" name="title" value="<?php echo $item["title"]?>">
+		<td class="update_td"><input type="text" name="title" size="48" value="<?php echo $item["title"]?>">
 	</td>
 
 	</tr>
 	
 	<tr>
 		<th>내용</th>
-		<td><textarea name="content" id="content" cols="30" rows="10"><?php echo $item["content"] ?></textarea></td>
+		<td class="update_td"><textarea name="content" id="content" cols="50" rows="10"><?php echo $item["content"] ?></textarea></td>
 	</tr>
 </table>
-<button type="submit">수정확인</button>
-<a href="/mini_board/src/detail.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">수정취소 </a>
-
+<div class="div_update">
+<button type="submit">수정</button>
+<a href="/mini_board/src/detail.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">취소 </a>
+</div>
 </form>
 
 </body>

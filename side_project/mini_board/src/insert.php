@@ -54,15 +54,21 @@ $conn->commit(); //모든 처리 완료 시 커밋
 	<?php
 	require_once(FILE_HEADER)
 	?>
-<form action="/mini_board/src/insert.php" method="post">
-	<label for="title">제목:</label>
-	<input type="text" name="title" id="title">
+<form class="form_1" action="/mini_board/src/insert.php" method="post">
+	<div >
+	<label for="title">제목</label>
+	<input type="text" name="title" id="title" size="48">
+	</div>
 	<br><br>
-	<label for="content">내용:</label>
-	<textarea name="content" id="content" rows="5" cols="50"></textarea>
+	<div>
+	<label for="content">내용</label>
+	<textarea name="content" id="content" rows="20" cols="50"></textarea>
+	</div>
 	<br>
+	<div class="div_insert">
 	<button type="submit">작성</button>
 	<a href="/mini_board/src/list.php">취소</a>
+	</div>
 </form>
 
 
