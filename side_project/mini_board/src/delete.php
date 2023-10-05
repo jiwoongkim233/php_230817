@@ -80,7 +80,8 @@ try{
 	if($http_method === "POST") {
 		$conn->rollBack(); // 롤백
 	}
-	echo $e->getMessage(); //에러 메세지 출력
+	header("Location:error.php/?err_msg={$e->getMessage()}");
+	// echo $e->getMessage(); //에러 메세지 출력
 	exit;//처리종료
 }finally{
 	db_destroy_conn($conn);
@@ -128,8 +129,8 @@ try{
 	<section>
 		<form action="/mini_board/src/delete.php" method="post">
 			<input type="hidden" name="id" value="<?php echo $id ?>">
-		<button type="submit">동의</button>
-		<a href="/mini_board/src/detail.php/?id=<?php echo $id ?>&page=<?php echo $page; ?>">취소</a>
+		<button class="page_btn a_hover" type="submit">동의</button>
+		<a class="page_btn a_hover" href="/mini_board/src/detail.php/?id=<?php echo $id ?>&page=<?php echo $page; ?>">취소</a>
 		</form>
 	</section>
 </body>

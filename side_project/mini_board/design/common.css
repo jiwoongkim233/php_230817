@@ -93,7 +93,7 @@ text-align: center;
 button:hover{
 	background-color: brown;
 }
-a:hover{
+.a_hover:hover{
 	background-color: brown;
 }
 textarea{
@@ -118,4 +118,7 @@ button{
 	cursor: pointer;
 	font-size: medium;
 	color:#fff
+}
+caption{
+	color:red;
 }

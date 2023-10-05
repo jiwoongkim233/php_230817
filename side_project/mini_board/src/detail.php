@@ -38,7 +38,8 @@ try{
 	$item=$result[0];
 
 } catch(Exception $e) {
-	echo $e->GetMessage(); //예외 메세지 출력
+	// echo $e->GetMessage(); //예외 메세지 출력
+	header("Location:error.php/?err_msg={$e->getMessage()}");
 	exit; // 처리종료
 
 } finally {
@@ -92,9 +93,9 @@ $page_num = $_GET["page"];
 		</tr>
 	</table>
 	<div class="div_detail">
-	<a class= "detail_a" href="/mini_board/src/update.php/?id=<?php echo $id ?>&page=<?php echo $page_num ?>">수정</a>
-	<a class= "detail_a" href="/mini_board/src/list.php/?page=<?php echo $page_num ?>">취소</a>
-	<a class= "detail_a" href="/mini_board/src/delete.php/?id=<?php echo $id ?>&page=<?php echo $page_num ?>">삭제</a>
+	<a class= "detail_a a_hover" href="/mini_board/src/update.php/?id=<?php echo $id ?>&page=<?php echo $page_num ?>">수정</a>
+	<a class= "detail_a a_hover" href="/mini_board/src/list.php/?page=<?php echo $page_num ?>">취소</a>
+	<a class= "detail_a a_hover" href="/mini_board/src/delete.php/?id=<?php echo $id ?>&page=<?php echo $page_num ?>">삭제</a>
 	</div>
 </body>
 </html>

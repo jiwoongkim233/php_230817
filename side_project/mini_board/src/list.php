@@ -58,7 +58,8 @@ try{
 	}
 
 } catch(Exception $e){
-	echo $e->getMessage(); //예외발생 메세지 출력
+	// echo $e->getMessage(); //예외발생 메세지 출력
+	header("Location:error.php/?err_msg={$e->getMessage()}");
 	exit; // 처리 종료
 } finally{
 	db_destroy_conn($conn); //DB 파기
@@ -110,16 +111,16 @@ try{
 		?>
 	</table>
 	<section>
-		<a class="page_btn" href="/mini_board/src/list.php/?page=<?php echo $prev_page_num ?>"><<</a>
+		<a class="page_btn a_hover" href="/mini_board/src/list.php/?page=<?php echo $prev_page_num ?>"><<</a>
 		<?php
 		for($i=1;$i<=$max_page_num;$i++){
 			?>
-		<a class="page_btn" href="/mini_board/src/list.php/?page=<?php echo $i ?>"><?php echo $i; ?></a>
+		<a class="page_btn a_hover" href="/mini_board/src/list.php/?page=<?php echo $i ?>"><?php echo $i; ?></a>
 		<?php
 		}
 		?>
-		<a class="page_btn" href="/mini_board/src/list.php/?page=<?php echo $next_page_num ?>">>></a>
-		<a class= "article" href="/mini_board/src/insert.php">작성</a>
+		<a class="a_hover page_btn" href="/mini_board/src/list.php/?page=<?php echo $next_page_num ?>">>></a>
+		<a class= "a_hover page_btn" href="/mini_board/src/insert.php">작성</a>
 	</section>
 </main>
 </body>
