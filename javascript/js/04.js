@@ -17,4 +17,4 @@ console.log(u_name);
 // const : 중복 선언 불가능, 재할당 불가능, 블록 레벨 스코프
 const AGE = 19;
 
-\
+
