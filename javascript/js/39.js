@@ -42,3 +42,45 @@ TITLE.style.color='red';
 // classList: 클래스로 스타일 추가
 TITLE.classList.add('class1','class2','class3');
 TITLE.classList.remove('class2','class3');
+
+// 새로운 요소 생성
+
+// 요소만들기
+const LI = document.createElement('li');
+LI.innerHTML = "글글글글";
+// 삽입할 부모 요소 접근
+const UL = document.querySelector('#ul');
+// 부모요소의 가장 마지막 위치에 삽입
+UL.appendChild(LI);
+// 요소를 특정 위치에 삽입하는 방법.
+const SPACE = document.querySelector('li:nth-child(3)');
+
+UL.insertBefore(LI, SPACE);
+
+
+// 1. 사과게임 위에 장기를 넣어주세요
+const CHESS = document.createElement('li');
+CHESS.innerHTML="장기";
+const APPLE = document.querySelector('li:nth-child(5)');
+UL.insertBefore(CHESS, APPLE);
+
+// 2. 어메이징브릭에 베이지 배경색을 넣어주세요
+const BRICK = document.querySelector('li:nth-child(11)');
+BRICK.style.backgroundColor='beige';
+
+// 3. 리스트에서 짝수는 빨간색글씨, 홀수는 파랑색글씨
+const listItems=document.querySelectorAll('ul li');
+	listItems.forEach((item,index) => {
+		if(index %2===0){
+			item.style.color='red';
+		}else{
+			item.style.color='blue';
+		}
+	}); 
+
+// 6. 참조
+// DOM 속성
+// develpoer.mozilla.org/en/docs/Web/API/Element
+
+// Document
+// developer.mozila.org/en/docs/Web/API/Document
