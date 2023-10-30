@@ -3,7 +3,7 @@ function my_db_conn( &$conn ){
 	$db_host = "localhost"; // host 
 	$db_user = "root"; // user
 	$db_pw = "php504"; // pw
-	$db_name = "mini_board"; // DB name 
+	$db_name = "assignment"; // DB name 
 	$db_charset = "utf8mb4"; // charset
 	$db_dns = "mysql:host=".$db_host. ";dbname=".$db_name.";charset=".$db_charset;
 
@@ -40,7 +40,7 @@ function db_select_boards_paging(&$conn, &$arr_param){
 " SELECT "
 	." id "
 	." ,title "
-	." ,create_at "
+	." ,created_date "
 ." FROM "
 	." boards "
 ." WHERE "
@@ -77,7 +77,7 @@ function db_select_boards_cnt(&$conn){
 		 " SELECT "
 		." COUNT(id) as cnt "
 		." FROM "
-		." boards "
+		." todolist "
 		." WHERE "
 		."		delflag = '0' "
 	;
@@ -107,7 +107,7 @@ function db_select_boards_cnt(&$conn){
 
 function db_insert_boards(&$conn, &$arr_param){
 	$sql = 
-		" INSERT INTO boards( "
+		" INSERT INTO todolist( "
 		." title "
 		." ,content "
 		." ) "
@@ -145,9 +145,9 @@ $arr_ps =[
 		." 		title "
 		." 		,content "
 		." 		,id "
-		." 		,create_at "
+		." 		,created_date "
 		." FROM "
-		." boards "
+		." todolist "
 		." WHERE "
 		."		id = :id "
 		." AND "
@@ -177,7 +177,7 @@ $arr_ps =[
 
 function db_update_boards_id(&$conn, &$arr_param) {
 $sql= " UPDATE "
-." boards "
+." todolist "
 ." SET "
 ." title=:title "
 ." ,content=:content "

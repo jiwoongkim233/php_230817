@@ -47,13 +47,12 @@ finally{
 					<?php echo $item["id"] ?>
 				</td>
 				<td>
-					<?php ?>
+					<?php echo $item["title"] ?>
+				</td>
+				<td>
+					<?php echo $item["created_date"] ?>
 				</td>
 			</tr>
-
-
-
-
 		<?php
 			}
 		?>		

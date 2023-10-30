@@ -1,5 +1,4 @@
-<!-- xcopy D:\workspace\php_230817\side_project\mini_board_test C:\Apache24\htdocs\mini_board_test /E /Y 
-xcopy C:\workspace\php_230817\side_project\mini_board_test C:\"program files"\Apache24\htdocs\mini_board_test /E /Y-->
+<!-- xcopy D:\workspace_jiwoong\php_230817\side_project\mini_board_test C:\Apache24\htdocs\mini_board_test /E /Y -->
 <?php
 define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/mini_board_test/src/");
 define("FILE_HEADER", ROOT."header.php"); 

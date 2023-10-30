@@ -28,16 +28,20 @@ function db_destroy_conn(&$conn){
 	$conn=null;
 };
 
-function db_select_board(&$conn){
+function db_select_board(&$conn, &$arr_param){
 	try{
-	$sql= " select "
+	$sql= " SELECT "
 	." id "
 	." ,title "
 	." ,created_date "
+	." WHERE "
+	." id = :id "
 	;
-
+	$arr_ps = [
+		":id" => $arr_param["id"]
+	];
 	$stmt=$conn->prepare($sql);
-	$stmt->execute();
+	$stmt->execute($arr_ps);
 	$result = $stmt->fetchAll();
 	return $result;
 }
