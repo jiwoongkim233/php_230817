@@ -1,0 +1,22 @@
+*{
+	margin:0;
+	padding:0;
+	box-sizing: content-box;
+}
+#container{
+	background-color: black;
+	color: white;
+	width: 1300px;
+	height: 200px;
+	margin: 0 auto;
+	font-size: x-large;
+}
+h1{
+	text-align: center;
+	padding: 70px;
+	margin: 50px;
+}
+#sub_cont{
+	text-align: center;
+}
+

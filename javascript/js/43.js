@@ -42,4 +42,72 @@ HyperText는 웹사이트에서 이용되는 하이퍼 링크나 리소스, 문�
 	}
 }
 
+
+
 */
+
+// https://picsum.photos/v2/list?page=1&limit=5
+
+const BTN_API= document.querySelector('#btn-api');
+BTN_API.addEventListener('click', my_fetch);
+const BTN_DEL = document.querySelector('#btn-del');
+BTN_DEL.addEventListener('click',delImg);
+
+function my_fetch(){
+	const INPUT_URL = document.querySelector('#input-url');
+	fetch(INPUT_URL.value.trim())
+	.then(response => {
+		if(response.status >= 200 && response.status < 300  ){
+			return response.json();
+		} else {
+			throw new error ('error');
+		}
+	})
+	.then(data => makeImg(data))
+	.then(data => console.log(data))
+	.catch(error => console.log(error));
+}
+
+function delImg(){
+	const DIV_PIC = document.querySelector('#div-img');
+	DIV_PIC.innerHTML='';
+
+}
+
+function makeImg(data){
+	data.forEach(item => {
+		const NEW_IMG = document.createElement('img');
+		const DIV_IMG = document.querySelector('#div-img');
+
+		NEW_IMG.setAttribute('src', item.download_url);
+		NEW_IMG.style.width='200px';
+		NEW_IMG.style.height='200px';
+		DIV_IMG.appendChild(NEW_IMG);
+
+	})
+}
+
+// 방법 2
+// for(let i = 0; i < img.length; i++){
+// IMG[i].remove();}
+
+// fetch 2번째 아규먼트 세팅 방법
+function infinityLoop(){
+	let apiURL = "http://112.222.157.156:6001/03_insert.php"
+	let init = {
+		method: "POST"
+		,headers:{
+		}
+		,body: {
+			title: "ddddd"
+			,content:"ccccc"
+			,em_id: "3"
+		}
+	};
+	fetch(apiURL,init)
+	.then(response => console.log(response))
+	.catch(error => console.log(error));
+}
+
+
+

@@ -1,0 +1,43 @@
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+header{
+	background-color: #000;
+	color:#fff;
+	padding:2rem;
+}
+h1{
+	text-align: center;
+	font-size:5rem;
+}
+main{
+	width:80%;
+	margin:0 auto;
+}
+.sectionInput {
+	text-align: center;
+	margin:3rem auto;
+}
+.sectionContent{
+	display: grid;
+	grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+	grid-gap:5px;
+}
+article{
+	background-color: gray;
+	text-align: center;
+}
+.articleId{
+	font-size: 2rem;
+	font-weight: bold;
+}
+.articleImg{
+	width:95%;
+	margin:0 auto;
+}
+#inputUrl{
+	width: 350px;
+}
