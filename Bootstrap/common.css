@@ -6,3 +6,18 @@ main{
 	gap: 1rem;
 	padding-bottom:70px;
 }
+#modal{
+position: absolute;
+background-color: rgba(0,0,0,0.5); 
+width:100vw;
+top: 0;
+height: 100vh;
+z-index: 10;
+}
+.displayNone{
+	display:none;
+}
+#modalW{
+	background-color: #fff;
+	
+}
