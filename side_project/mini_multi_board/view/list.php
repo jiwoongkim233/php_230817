@@ -10,7 +10,7 @@
 <body class="vh-100">
 	<?php require_once("view/inc/header.php"); ?>
 	<div class="text-center mt-5 mb-5">
-		<h1>자유게시판</h1>
+		<h1><?php echo $this->titleBoardName ?></h1>
 		<svg xmlns="http://www.w3.org/2000/svg" 
 		width="40" height="40" fill="currentColor" 
 		class="bi bi-pencil-fill" viewBox="0 0 16 16"
@@ -29,46 +29,20 @@
 
 
 	<main>
+		<?php 
+			foreach($this->arrBoardInfo as $item) {
+		?>	
 		<div class="card">
-			<img src="/view/img/20171224_182048.png" class="card-img-top" alt="img">
+			<img src="<?php echo isset($item["b_img"]) ?  "/"._PATH_USERIMG.$item["b_img"]: "";?>" class="card-img-top" alt="이미지 없음">
 			<div class="card-body">
-			  <h5 class="card-title">나는야 꼬부기</h5>
-			  <p class="card-text">꼬북꼬북</p>
+			  <h5 class="card-title"><?php echo $item["b_title"] ?></h5>
+			  <p class="card-text" len><?php echo mb_substr($item["b_content"],0,10)."..." ?></p>
 			  <button id="btnDetail" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
 			</div>
 		</div>
-		<div class="card">
-			<img src="/view/img/20171224_182048.png" class="card-img-top" alt="img">
-			<div class="card-body">
-			  <h5 class="card-title">배고파요</h5>
-			  <p class="card-text">밥밥밥</p>
-			  <button id="btnDetail" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
-			</div>
-		</div>
-		<div class="card">
-			<img src="/view/img/20171224_182048.png" class="card-img-top" alt="img">
-			<div class="card-body">
-			  <h5 class="card-title">추워요</h5>
-			  <p class="card-text">덜덜덜</p>
-			  <button id="btnDetail" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
-			</div>
-		</div>
-		<div class="card">
-			<img src="/view/img/20171224_182048.png" class="card-img-top" alt="img">
-			<div class="card-body">
-			  <h5 class="card-title">더워요</h5>
-			  <p class="card-text">땀땀땀</p>
-			  <button id="btnDetail" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
-			</div>
-		</div>
-		<div class="card">
-			<img src="/view/img/20171224_182048.png" class="card-img-top" alt="img">
-			<div class="card-body">
-			  <h5 class="card-title">잠와요</h5>
-			  <p class="card-text">쿨쿨쿨</p>
-			  <button id="btnDetail" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
-			</div>
-		</div>		
+		<?php
+			}
+			?>
 	</main>
 
 	<!-- Button trigger modal -->
@@ -97,14 +71,15 @@
 	<div class="modal fade" id="modalInsert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form action="">
+				<form action="/board/add" method="POST" enctype="multipart/form-data">
+					<input type="hidden" name="b_type" value="<?php echo $this->boardType; ?>">
 					<div class="modal-header">
-						<input type="text" class="form-control" placeholder="제목 적어라ㅡㅡ">
+						<input type="text" name="b_title" class="form-control" placeholder="제목 적어라ㅡㅡ" value="">
 					</div>
 					<div class="modal-body">
-						<textarea class="form-control" cols="30" rows="10" placeholder="내용 적어라ㅡㅡ"></textarea>
+						<textarea class="form-control" name="b_content" cols="30" rows="10" placeholder="내용 적어라ㅡㅡ" value=""></textarea>
 						<br><br>
-						<input type="file" accept="image/*">
+						<input type="file" name="b_img" accept="image/*">
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>

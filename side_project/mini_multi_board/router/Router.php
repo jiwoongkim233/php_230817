@@ -50,9 +50,14 @@ class Router {
 		} else if($url === "board/list")
 			if($method === "GET") {
 				new BC("listGet");
+			} 
+			else if($url === "board/add"){
+			if($methodd ==="GET"){
+				//처리없음
+			} else {
+				new BoardController("addPost");
 			}
-
-
+		}
 			echo "이상한 URL : ".$url;
 			exit();
 		
