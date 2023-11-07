@@ -32,7 +32,7 @@ class BoardModel extends ParentsModel {
 	public function addBoard($arrAddBoardInfo){
 		$sql = 
 		 "	INSERT INTO boards 
-		 u_pk, b_type, b_title, b_content, b_img
+		 (u_pk, b_type, b_title, b_content, b_img)
 		 VALUES 
 		 (:u_pk, :b_type, :b_title, :b_content, :b_img) "
 		 ;
@@ -46,13 +46,34 @@ class BoardModel extends ParentsModel {
 		];
 	try{
 		$stmt=$this->conn->prepare($sql);
-		$stmt->execute($prepare);
+		$result = $stmt->execute($prepare);
 		return $result;
 	} catch(Exception $e){
-		echo "BoardModel -> addBoard Error : ".$e->getMessage();
+		echo "BoardModel->addBoard Error : ".$e->getMessage();
 		exit(); 
 		}
 	} 
+
+	// 디테일 조회
+	public function getBoardDetail($arrBoardDetailInfo){
+		$sql = 
+		"	SELECT 
+			b_id, u_pk, b_title, b_content, b_img, created_at, updated_at
+			FROM boards 
+			WHERE b_id =:id ";
+		$prepare = [
+			":id" => $arrBoardDetailInfo["id"]
+		];		
+	try{
+		$stmt = $this->conn->prepare($sql);
+		$stmt->execute($prepare);
+		$result =$stmt->fetchAll();
+		return $result;
+}catch(Exception $e){
+		echo "BoardModel -> getBoardDetail Error : ". $e->getMessage();
+		exit();
+		}
+	}
 }	
 	
 

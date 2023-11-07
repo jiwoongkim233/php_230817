@@ -37,7 +37,10 @@
 			<div class="card-body">
 			  <h5 class="card-title"><?php echo $item["b_title"] ?></h5>
 			  <p class="card-text" len><?php echo mb_substr($item["b_content"],0,10)."..." ?></p>
-			  <button id="btnDetail" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
+			  <!-- <button id="btnDetail" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button> -->
+			  <button class="btn btn-primary"
+			   onclick="openDetail(<?php echo $item['b_id'] ?>); return false;"
+			   >상세</button>
 			</div>
 		</div>
 		<?php
@@ -53,15 +56,19 @@
 		<div class="modal-dialog modal-dialog-scrollable">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">아니 내 연습장 표지 어디갔는데</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					<h5 class="modal-title" id="b_title">아니 내 연습장 표지 어디갔는데</h5>
+					<button type="button" class="btn-close" onclick="closeDetailModal(); return false;" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<span>이럴거면 a4쓰지 왜 연습장 쓰냐고</span>
-					<img src="/view/img/20171224_182048.png" alt="">
+					<p>작성일 :<span id="created_at"></span></p>
+					<p>수정일 :<span id="updated_at"></span></p>
+					<br>
+					<span id="b_content">이럴거면 a4쓰지 왜 연습장 쓰냐고</span>
+					<img src="/view/img/20171224_182048.png" id="b_img" alt="">
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+
+					<button type="button" onclick="closeDetailModal(); return false;" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
 				</div>
 			</div>
 		</div>

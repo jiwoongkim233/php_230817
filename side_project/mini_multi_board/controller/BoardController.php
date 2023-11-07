@@ -3,6 +3,7 @@
 namespace controller;
 
 use model\BoardModel;
+
 class BoardController extends ParentsController {
 	protected $arrBoardInfo;
 	protected $titleBoardName;
@@ -65,7 +66,6 @@ class BoardController extends ParentsController {
 		// 인서트 처리
 		$boardModel = new BoardModel();
 		$boardModel->beginTransaction();
-		$boardModel->addBoard($arrAddBoardInfo);
 		$result=$boardModel->addBoard($arrAddBoardInfo);
 		if($result !== true){
 			$boardModel->rollBack();
@@ -75,5 +75,31 @@ class BoardController extends ParentsController {
 		// 모델 파기
 		$boardModel->destroy();
 		return "Location: /board/list?b_type=".$b_type;
+	}
+	// 상세 정보 API
+	protected function detailGet(){
+		$id=$_GET["id"];
+		
+		$arrBoardDetailInfo = [
+			"id" => $id
+		];
+
+		$boardModel = new BoardModel();
+		$result = $boardModel->getBoardDetail($arrBoardDetailInfo);
+
+		$result[0]["b_img"]= "/"._PATH_USERIMG.$result[0]["b_img"];
+		
+		// 레스폰스 데이터 작성
+		$arrTmp = [
+			"errflg" => "0"
+			,"msg" => "" 
+			,"data" => $result[0]	
+		];
+		$response =json_encode($arrTmp);
+		
+		// response 처리
+		header('Content-type: application/json');
+		echo $response;
+		exit();
 	}
 }

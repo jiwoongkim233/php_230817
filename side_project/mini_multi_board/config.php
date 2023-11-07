@@ -2,7 +2,7 @@
 
 // 경로
 define("_ROOT", $_SERVER["DOCUMENT_ROOT"]."/");
-define("_PATH_USERIMG", "/view/userImg/");
+define("_PATH_USERIMG", "view/userImg/");
 
 
 // DB관련
