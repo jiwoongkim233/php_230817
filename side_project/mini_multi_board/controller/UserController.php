@@ -50,6 +50,7 @@ class UserController extends ParentsController{
         $u_id = $_POST["u_id"];
 		$u_pw = $_POST["u_pw"];
 		$u_name = $_POST["u_name"];
+		$u_pw_chk = $_POST["u_pw_chk"];
 		
 		$arrAddUserInfo = [
 			"u_id" => $u_id
@@ -60,7 +61,7 @@ class UserController extends ParentsController{
 		$patternId = "/^[a-zA-z0-9]{8,20}$/";
 		$patternPw = "/^[a-zA-z0-9!@]{8,20}$/";
 		$patternName = "/^[a-zA-Z가-힣]{2,50}$/u";
-
+	
 		if(preg_match($patternId, $u_id, $match)===0){
 			// id 에러처리
 			$this->arrErrorMsg[] = "아이디는 영어대소문자와 숫자로 8~20자로 입력해 주세요. ";
@@ -68,6 +69,10 @@ class UserController extends ParentsController{
 		if(preg_match($patternPw, $u_pw, $match)===0){
 			// pw 에러처리
 			$this->arrErrorMsg[] = "비밀번호는 영어대소문자와 숫자 ,! ,@로 8~20자로 입력해 주세요. ";
+		}
+		if($u_pw !== $u_pw_chk){
+			// pw확인에러처리
+			$this->arrErrorMsg[]="비밀번호와 비밀번호 확인이 서로 다릅니다.";
 		}
 		if(preg_match($patternName, $u_name, $match)===0){
 			// Name 에러처리

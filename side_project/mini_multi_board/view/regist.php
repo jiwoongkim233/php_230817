@@ -21,6 +21,10 @@
 				<input type="password" class="form-control" id="u_pw" name="u_pw" minlength="8" maxlength="30">
 			</div>
 			<div class="mb-3">
+				<label for="u_pw_chk" class="form-label">비밀번호확인</label>
+				<input type="password" class="form-control" id="u_pw_chk" name="u_pw_chk" minlength="8" maxlength="30">
+			</div>
+			<div class="mb-3">
 				<label for="u_name" class="form-label">이름</label>
 				<input type="text" class="form-control" id="u_name" name="u_name" minlength="2" maxlength="50">
 			</div>
