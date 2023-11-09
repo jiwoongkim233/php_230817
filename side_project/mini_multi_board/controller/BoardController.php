@@ -78,16 +78,20 @@ class BoardController extends ParentsController {
 	}
 	// 상세 정보 API
 	protected function detailGet(){
-		$id=$_GET["id"];
+		$b_id=$_GET["id"];
 		
 		$arrBoardDetailInfo = [
-			"id" => $id
+			"b_id" => $b_id
 		];
 
 		$boardModel = new BoardModel();
 		$result = $boardModel->getBoardDetail($arrBoardDetailInfo);
 
 		$result[0]["b_img"]= "/"._PATH_USERIMG.$result[0]["b_img"];
+
+		// 작성 유저 플래그
+		$result[0]["uflg"] = $result[0]["u_pk"] === $_SESSION["u_pk"] ? "1" :"0";
+
 		
 		// 레스폰스 데이터 작성
 		$arrTmp = [
@@ -97,6 +101,55 @@ class BoardController extends ParentsController {
 		];
 		$response =json_encode($arrTmp);
 		
+		// response 처리
+		header('Content-type: application/json');
+		echo $response;
+		exit();
+	}
+	// protected function deletePost(){
+	// 	$b_id=$_POST["b_id"];
+	// 	$boardModel = new BoardModel();
+	// 	$boardModel->beginTransaction();
+	// 	$result = $boardModel->delUserInfo($b_id);
+	// 	if($result !== true){
+	// 		$boardModel->rollBack();
+	// 	} else {
+	// 		$boardModel->commit();
+	// 	}
+	// 	// 모델 파기
+	// 	$boardModel->destroy();
+	// 	return "Location: /board/list";
+	// }
+	// 삭제처리 API
+	protected function removeGet(){
+		$errFlg = "0";
+		$errMsg = "";
+		$arrDeleteBoardInfo = [
+			"b_id" => $_GET["b_id"]
+			,"u_pk" => $_SESSION["u_pk"]
+		];
+
+		// 삭제 처리
+		$boardModel = new BoardModel();
+		$boardModel->beginTransaction();
+		$result = $boardModel->removeBoardCard($arrDeleteBoardInfo);
+		if($result !== 1){
+			$errFlg="1";
+			$errMsg="삭제 처리 이상";
+			$boardModel->rollBack();
+		} else {
+			$boardModel->commit();
+		}
+		$boardModel->destroy();
+
+		// response 데이터 작성
+		$arrTmp = [
+			"errflg" => $errFlg
+			,"msg" => $errMsg
+			,"b_id" => $arrDeleteBoardInfo["b_id"]
+		];
+		$response = json_encode($arrTmp);
+
 		// response 처리
 		header('Content-type: application/json');
 		echo $response;

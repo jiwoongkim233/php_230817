@@ -3,6 +3,8 @@
 namespace controller;
 
 use model\UserModel;
+use lib\Validation;
+
 class UserController extends ParentsController{
 	// 로그인 페이지 이동
 	protected function loginGet() {
@@ -47,43 +49,29 @@ class UserController extends ParentsController{
 
 	// 회원가입 처리
 	protected function registPost(){
-        $u_id = $_POST["u_id"];
-		$u_pw = $_POST["u_pw"];
-		$u_name = $_POST["u_name"];
-		$u_pw_chk = $_POST["u_pw_chk"];
-		
+		$inputData=[
+			"u_id" => $_POST["u_id"]
+			,"u_pw" => $_POST["u_pw"]
+			,"u_pw_chk" => $_POST["u_pw_chk"]
+			,"u_name" => $_POST["u_name"]
+		];
 		$arrAddUserInfo = [
-			"u_id" => $u_id
-			,"u_pw" => $this->encryptionPassword($u_pw)
-			,"u_name" => $u_name
+			"u_id" => $_POST["u_id"]
+			,"u_pw" => $this->encryptionPassword($_POST["u_pw"])
+			,"u_name" => $_POST["u_name"]
 		];
 		
 		$patternId = "/^[a-zA-z0-9]{8,20}$/";
 		$patternPw = "/^[a-zA-z0-9!@]{8,20}$/";
 		$patternName = "/^[a-zA-Z가-힣]{2,50}$/u";
 	
-		if(preg_match($patternId, $u_id, $match)===0){
-			// id 에러처리
-			$this->arrErrorMsg[] = "아이디는 영어대소문자와 숫자로 8~20자로 입력해 주세요. ";
-		}
-		if(preg_match($patternPw, $u_pw, $match)===0){
-			// pw 에러처리
-			$this->arrErrorMsg[] = "비밀번호는 영어대소문자와 숫자 ,! ,@로 8~20자로 입력해 주세요. ";
-		}
-		if($u_pw !== $u_pw_chk){
-			// pw확인에러처리
-			$this->arrErrorMsg[]="비밀번호와 비밀번호 확인이 서로 다릅니다.";
-		}
-		if(preg_match($patternName, $u_name, $match)===0){
-			// Name 에러처리
-			$this->arrErrorMsg[] = "이름은 영어대소문자와 한글로 8~20자로 입력해 주세요. ";
-		}
+		// TODO : Validation 처리
 		// TODO : 아이디 중복 체크 필요
 
-		// 유효성 체크 
-		if(count($this->arrErrorMsg) > 0){
-			return "view/regist.php";
-			exit();
+		// 유효성 체크 실패
+		if(!Validation::userChk($_POST)){
+			$this->arrErrorMsg = Validation::getArrErrorMsg();
+			return "view/regist.php";			
 		}	
 		// 인서트 처리
 		$userModel = new UserModel();
@@ -100,11 +88,33 @@ class UserController extends ParentsController{
 		return "Location: /user/login";
 		
 	}
-
+	protected function userIdChk() {
+        $u_id = $_GET["u_id"];
+        // var_dump($inputData); // localhost/user/idchk?u_id=admin
+        $useridchk = new UserModel();
+        $result = $useridchk->userChkInfo($u_id);
+        // $result = $useridchk->getUserInfo($u_id); // 이것도 가능.
+        //$userModel->destroy();
+        // if(count($result) > 0) {
+        //     $errorFlg = "1";
+        //     $errorMsg = "중복된 아이디 입니다.";
+        // }
+        $arrTmp = [
+            "errflg" => "0"
+            ,"msg" => ""
+            ,"data" => $result[0]
+        ];
+        $response = json_encode($arrTmp);
+        // response 처리
+        header('Content-type: application/json'); // 데이터 타입이 json인것을 알려주는것.
+        echo $response;
+        exit();
+    }
 	// 비밀번호 암호화
 	private function encryptionPassword($pw){
 		return base64_encode($pw);
 	}
+
 }
 
 

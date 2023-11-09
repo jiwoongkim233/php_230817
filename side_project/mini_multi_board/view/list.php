@@ -32,7 +32,7 @@
 		<?php 
 			foreach($this->arrBoardInfo as $item) {
 		?>	
-		<div class="card">
+		<div class="card" id="card<?php echo $item["b_id"];?>">
 			<img src="<?php echo isset($item["b_img"]) ?  "/"._PATH_USERIMG.$item["b_img"]: "";?>" class="card-img-top" alt="이미지 없음">
 			<div class="card-body">
 			  <h5 class="card-title"><?php echo $item["b_title"] ?></h5>
@@ -66,13 +66,19 @@
 					<span id="b_content">이럴거면 a4쓰지 왜 연습장 쓰냐고</span>
 					<img src="/view/img/20171224_182048.png" id="b_img" alt="">
 				</div>
-				<div class="modal-footer">
-
-					<button type="button" onclick="closeDetailModal(); return false;" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+				<form action="/board/delete" method="POST">
+				<div class="modal-footer ">
+				<input type="hidden" id="del_id" value="">
+				<button id="btn_del" class="btn btn-secondary me-auto p-2 bd-highlight" type="button" onclick="deleteCard(); return false;">삭제</button>
+				<!-- <input type="hidden" name="b_d" id="deleteId"> -->
+				<!-- <button type="submit" id="userDel"class="btn btn-secondary me-auto p-2 bd-highlight" data-bs-dismiss="modal">삭제</button> -->
+				<button type="button" onclick="closeDetailModal(); return false;" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>
+	
 
 	  <!-- 작성 Modal -->
 	<div class="modal fade" id="modalInsert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

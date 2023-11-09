@@ -62,6 +62,17 @@ class Router {
 				new BC("detailGet");
 			}
 		}
+		else if($url === "board/remove"){
+			if($method === "GET"){
+				new BC("removeGet");
+			}
+		}
+		else if($url === "user/idchk") {
+            if($method === "GET") {
+                new UC("userIdChk");
+            }
+        }
+	
 			// 없는 경로일 경우 
 			echo "이상한 URL : ".$url;
 			exit();

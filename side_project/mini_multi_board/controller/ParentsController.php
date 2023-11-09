@@ -14,6 +14,7 @@ class ParentsController {
 		"board/list"
 		,"board/add"
 		,"board/detail"
+		,"board/delete"
 	];
 
 	public function __construct($action) {
