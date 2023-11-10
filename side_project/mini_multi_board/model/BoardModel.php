@@ -7,7 +7,7 @@ class BoardModel extends ParentsModel {
 			"	SELECT 
 					b_id, u_pk, b_title, b_content, b_img, created_at, updated_at
 				FROM 
-					boards 
+					board 
 				WHERE 
 				b_type = :b_type 
 				AND deleted_at IS NULL ";
@@ -31,7 +31,7 @@ class BoardModel extends ParentsModel {
 	// 작성글 인서트 
 	public function addBoard($arrAddBoardInfo){
 		$sql = 
-		 "	INSERT INTO boards 
+		 "	INSERT INTO board 
 		 (u_pk, b_type, b_title, b_content, b_img)
 		 VALUES 
 		 (:u_pk, :b_type, :b_title, :b_content, :b_img) "
@@ -59,7 +59,7 @@ class BoardModel extends ParentsModel {
 		$sql = 
 		"	SELECT 
 			b_id, u_pk, b_title, b_content, b_img, created_at, updated_at
-			FROM boards 
+			FROM board
 			WHERE b_id =:b_id ";
 		$prepare = [
 			":b_id" => $arrBoardDetailInfo["b_id"]
@@ -77,7 +77,7 @@ class BoardModel extends ParentsModel {
 		// 삭제 처리
 		public function removeBoardCard($arrDeleteBoardInfo){
 			$sql = 
-			"	UPDATE boards 
+			"	UPDATE board 
 				SET 
 			deleted_at = NOW() 
 				WHERE 
