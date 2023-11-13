@@ -116,3 +116,23 @@ Route::get('/name/home/php504/user', function(){
 // 커맨드로 컨트롤러 생성 : php artisan make : controller 컨트롤러명
 use App\Http\Controllers\TestController;
 Route::get('/test',[TestController::class, 'index'])->name('test.index');
+
+
+
+// 블레이드 템플릿 용
+Route::get('/child1', function() {
+    $arr = [
+        'name' => '홍길동'
+        ,'age' => '130'
+        ,'gender'=> 'F'
+    ];
+    $arr2 = ['test'];
+    return view('child1')
+    ->with('gender', '0')
+    ->with('data', $arr)
+    ->with('data2',$arr2);
+});
+
+Route::get('/child2', function() {
+    return view('child2');
+});
