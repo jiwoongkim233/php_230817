@@ -1,1 +1,1 @@
-<h2>footer</h2>
+<footer class="fixed-bottom bg-dark text-light text-center p-3">Copyright</footer>
