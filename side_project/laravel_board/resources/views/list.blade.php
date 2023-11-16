@@ -3,6 +3,7 @@
 @section('title', 'List')
 
 @section('main')
+<a href="{{route('board.create')}}" class="btn btn-secondary">작성</a>
 <main>
 @forelse($data as $item)
 <div class="card">
