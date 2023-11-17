@@ -35,6 +35,7 @@
 		<p>{{$data->updated_at}}</p>
 		</div>
 		<button type="submit" class="btn btn-danger">삭제</button>
+		<a href="{{route('board.edit',['board' => $data->b_id])}}" class="btn btn-primary">수정</a>
 	</main>
 </form>
 @endsection
