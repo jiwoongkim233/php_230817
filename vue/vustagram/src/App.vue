@@ -17,7 +17,8 @@
 
 
 <!-- 더보기 버튼 -->
-<button @click="addList()">더보기</button>
+<button @click="addList()"
+v-if="$store.state.flgBtnMoreView && $store.state.flgTapUI">더보기</button>
 
 <!-- 푸터 -->
 <div class="footer">
@@ -60,7 +61,7 @@ export default {
     },
 
     addList(){
-      this.$store.dispatch('actionPostBoardMore');
+      this.$store.dispatch('actionGetBoardMore');
     },
   },
   components: {

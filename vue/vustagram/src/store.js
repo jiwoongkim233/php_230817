@@ -9,6 +9,7 @@ const store = createStore({
 			imgURL: '', // 작성탭 표시용 이미지 URL 저장용
 			postFileData: null, //글 작성 파일데이터 저장용
 			lastBoardId: 0, // 가장 마지막 로드 된 게시글 번호 저장용
+			flgBtnMoreView:true, // 더보기 버튼 활성여부 플래그
 		}
 	},
 
@@ -42,7 +43,12 @@ const store = createStore({
 		},
 		setPushBoard(state, data){
 			state.boardData.push(data);
+			state.lastBoardId=state.boardData[state.boardData.length -1].id;
 		},
+		// 더보기 버튼 활성화
+		setFlgBtnMoreView(state, boo){
+			state.flgBtnMoreView = boo;
+		}
 	},
 
 	// actions : ajax로 서버에 데이터를 요청할 때나 시간 함수등 비동기 처리는 actions에 정의 
@@ -66,7 +72,7 @@ const store = createStore({
 		},
 		//글작성 처리
 		actionPostBoardAdd(context){
-			const url = 'http://112.222.157.156:6006/api/boards/';
+			const url = 'http://112.222.157.156:6006/api/boards';
 			const header = {
 				headers:{
 					'Authorization' : 'Bearer meerkat',
@@ -92,8 +98,8 @@ const store = createStore({
 		});
 	},
 
-	actionPostBoardMore(context){
-		const url = 'http://112.222.157.156:6006/api/boards/100';
+	actionGetBoardMore(context){
+		const url = 'http://112.222.157.156:6006/api/boards/'+context.state.lastBoardId;
 		const header = {
 			headers:{
 				'Authorization' : 'Bearer meerkat',
@@ -101,7 +107,12 @@ const store = createStore({
 	};
 	axios.get(url, header)
 	.then(res => {
-		context.commit('PushBoard',res.data);
+		if(res.data){
+		context.commit('setPushBoard',res.data);
+	} else {
+		// 데이터가 없을 경우
+		context.commit('setFlgBtnMoreView', false);
+	}
 	})
 	.catch(err=>{
 		console.log(err);
